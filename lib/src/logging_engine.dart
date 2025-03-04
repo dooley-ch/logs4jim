@@ -9,8 +9,9 @@
 // ║     03.03.2025: Initial version
 // ╚═════════════════════════════════════════════════════════════════════════════════════════════════
 
-import 'logging_level.dart';
 import 'appender_base.dart';
+
+var _appenders = <AppenderBase>[];
 
 Future<void> logFatalMessage ({required String message, String extraData = ''}) async {
 }
@@ -30,8 +31,6 @@ void logAppStartUp () {
 void logAppShutDown () {
 }
 
-void setLoggingLevel({required LoggingLevel level }) {
-}
-
 void addLoggingAppender({required AppenderBase appender}) {
+  _appenders.add(appender);
 }

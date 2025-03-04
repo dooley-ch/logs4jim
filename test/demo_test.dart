@@ -1,31 +1,23 @@
 // ╔═════════════════════════════════════════════════════════════════════════════════════════════════
-// ║     logs4jim.dart
+// ║     demo_test.dart
 // ╠═════════════════════════════════════════════════════════════════════════════════════════════════
-// ║     Created: 03.03.2025
+// ║     Created: 04.03.2025
 // ║
 // ║     Copyright (c) 2025 James Dooley <james@dooley.ch>
 // ║
 // ║     History:
-// ║     03.03.2025: Initial version
+// ║     04.03.2025: Initial version
 // ╚═════════════════════════════════════════════════════════════════════════════════════════════════
 
-/// This library supports simple application logging to the console and file
-library;
+import 'package:colorize/colorize.dart';
+import 'package:test/test.dart';
+import 'package:intl/intl.dart' show DateFormat;
 
-export 'src/logging_level.dart' show
-  LoggingLevel;
+void main() {
+ var formatter = DateFormat('yyyy-MM-dd HH:mm:ss');
 
-export 'src/log_record.dart' show
-  LogRecord;
+ Colorize testString = Colorize('${formatter.format(DateTime.now())} [INFO] This is my string!');
+ testString.bgBlack().green();
 
-export 'src/logging_engine.dart' show
-  logFatalMessage,
-  logErrorMessage,
-  logWarningMessage,
-  logInformationMessage,
-  addLoggingAppender,
-  logAppStartUp,
-  logAppShutDown;
-
-export 'src/console_appender.dart' show
-  ConsoleAppender;
+ print(testString);
+}
